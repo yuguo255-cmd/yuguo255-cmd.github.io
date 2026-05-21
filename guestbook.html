@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <html lang="zh-CN">
+  <head>
+      <meta charset="UTF-8">
+      <title>fzu简介</title>
+      <style>
+          body{
+            background-image:url("yuguo255-cmd.github.io/bg.jpg");
+            background-repeat:no-repeat;
+            background-position:right top;
+            background-size: cover;
+          }
+          nav {
+            display: flex;
+            justify-content: space-evenly;
+            /* text-align:center; */
+            background-color:#21c0ff;
+          }
+          .web {
+            color:#ee1f3e;
+          }
+          .web a {
+            color:#ff7f07;
+          }
+          #guestbook-list p {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            background-color:#21c0ff;
+            word-wrap: break-word;
+            /* 还有自动换行 */
+          }
+
+
+      </style>
+  </head>
+  <body>
+    
+      <!-- 头部导航栏 -->
+       <nav>
+          <a href="index.html">首页</a>
+          <a href="fzu.html">福州大学简介</a>
+          <a href="https://github.com/yuguo255-cmd">我的github</a>
+          <a href="guestbook.html">留言板</a>
+       </nav>
+
+      <hr>
+
+
+      <div class="web">
+          <h2>学校网站</h2>
+          <p>官网：<a
+        href="https://www.fzu.edu.cn/">福州大学官网</a></p>
+          <p>教务处：<a
+        href="https://jwch.fzu.edu.cn/">福州大学教务处</a></p>
+      </div>
+
+      <!-- 表单元素 -->
+      <input type="text" id="name" placeholder="你的昵称">
+
+      <textarea id="message" placeholder="写点什么..."></textarea>
+
+      <button id="submit-btn">提交留言</button>
+
+      <div id="guestbook-list">
+            <!-- 留言会动态插入到这里 -->
+      </div>
+
+
+      <script>
+        //  getElementById('name'):找到名叫“name”的元素 在整个document文档中
+        //  addEventListener 监听"点击"这个动作(click)
+        //  function是监听到“点击”这个动作后要执行的函数
+        //  .value 读取输入框内容
+        //  var 声明变量
+
+
+         document.getElementById('submit-btn').addEventListener('click', function() {
+
+         // 获取用户输入
+         var name = document.getElementById('name').value;
+         
+         var msg = document.getElementById('message').value;
+
+         // 组合成一段留言
+         var text = name + ' 说：' + msg;
+
+         // 创建一个新的 p 元素
+         var p = document.createElement('p');
+         p.textContent = text;
+
+         // 把新元素插入到展示区
+         // appendChild 插入页面(插入p）
+         document.getElementById('guestbook-list').appendChild(p);
+
+         // 清空输入框
+         document.getElementById('name').value = '';
+         document.getElementById('message').value = '';
+  });
+      </script>
+
+      
+
+
+  </body>
+  </html>
